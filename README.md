@@ -1,1 +1,1 @@
-# Vinil-Prototipo
+# Vinil-Prototipo - Projeto da disciplina PCS-SGBD
