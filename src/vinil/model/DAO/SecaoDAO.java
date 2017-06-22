@@ -3,6 +3,7 @@ package vinil.model.DAO;
 import java.util.List;
 import vinil.model.LongPlay;
 import vinil.model.Secao;
+import java.sql.*;
 
 public class SecaoDAO {
 

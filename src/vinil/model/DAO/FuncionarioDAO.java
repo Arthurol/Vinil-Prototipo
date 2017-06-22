@@ -1,6 +1,7 @@
 package vinil.model.DAO;
 
 import vinil.model.Funcionario;
+import java.sql.*;
 
 public class FuncionarioDAO {
 

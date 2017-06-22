@@ -1,12 +1,41 @@
 package vinil.model;
 
+import java.util.Calendar;
+
 public class Funcionario {
 
 	private int id;
 	private String nome;
-	private String login;
+	private String cpf;
+	private String email;
 	private String senha;
 	private String cargo;
+	private Calendar inicioGerencia;
+	
+	public Funcionario()
+	{
+		this.id = -1;
+		this.nome = "";
+		this.cpf = "";
+		this.email = "";
+		this.senha = "";
+		this.cargo = "";
+		this.inicioGerencia = null;
+	}
+	
+	public Funcionario(String nome, String cpf, String email, String senha, String cargo, Calendar inicioGerencia)
+	{
+		this.nome = nome;
+		this.setCpf(cpf);
+		this.email = email;
+		this.senha = senha;
+		this.cargo = cargo;
+		this.inicioGerencia = inicioGerencia;
+	}
+	
+	public int getId() {
+		return id;
+	}
 	
 	public String getNome() 
 	{
@@ -18,14 +47,22 @@ public class Funcionario {
 		this.nome = nome;
 	}
 	
-	public String getLogin() 
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public String getEmail() 
 	{
-		return login;
+		return email;
 	}
 	
-	public void setLogin(String login) 
+	public void setEmail(String email) 
 	{
-		this.login = login;
+		this.email = email;
 	}
 	
 	public String getSenha() 
@@ -47,7 +84,12 @@ public class Funcionario {
 		this.cargo = cargo;
 	}
 	
-	public int getId() {
-		return id;
+	public Calendar getInicioGerencia() {
+		return inicioGerencia;
 	}
+
+	public void setInicioGerencia(Calendar inicioGerencia) {
+		this.inicioGerencia = inicioGerencia;
+	}
+
 }

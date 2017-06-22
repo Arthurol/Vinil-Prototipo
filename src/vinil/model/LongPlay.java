@@ -8,8 +8,13 @@ public class LongPlay {
 	private String titulo;
 	private Calendar dataGravacao;
 	private int idGravadora;
-	private String genero; //talvez vire Enum.
+	private String genero;
 	private int quantidadeEstoque;
+	
+	public LongPlay()
+	{
+		
+	}
 	
 	public String getTitulo() 
 	{

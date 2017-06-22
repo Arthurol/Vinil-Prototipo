@@ -1,5 +1,6 @@
 package vinil.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Gravadora {
@@ -9,6 +10,33 @@ public class Gravadora {
 	private String cnpj;
 	private String endereco;
 	private List<String> telefones;
+	
+	public Gravadora()
+	{
+		this.id = -1;
+		this.nome = "";
+		this.cnpj = "";
+		this.endereco = "";
+		
+		for(int i = 0; i < this.telefones.size(); i++)
+		{
+			this.telefones.set(i, "");
+		}
+	}
+	
+	public Gravadora(String nome, String cnpj, String endereco, List<String> telefones)
+	{
+		this.id = -1;
+		this.nome = nome;
+		this.cnpj = cnpj;
+		this.endereco = endereco;
+		this.telefones = telefones;
+		
+		//for(int i = 0; i < this.telefones.size(); i++)
+		//{
+		//	this.telefones.add(telefones.get(i));
+		//}
+	}
 	
 	public String getNome() 
 	{

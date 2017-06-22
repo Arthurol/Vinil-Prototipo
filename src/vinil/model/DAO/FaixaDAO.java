@@ -1,8 +1,8 @@
 package vinil.model.DAO;
 
 import java.util.List;
-
 import vinil.model.Faixa;
+import java.sql.*;
 
 public class FaixaDAO {
 

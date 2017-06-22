@@ -5,6 +5,22 @@ public class Faixa {
 	private int id;
 	private String titulo;
 	private int duracaoSegundos; 
+	private String compositoresLetra;
+	
+	public Faixa()
+	{
+		this.id = -1;
+		this.titulo = "";
+		this.duracaoSegundos = -1;
+		this.compositoresLetra = "";
+	}
+	
+	public Faixa(String titulo, int duracaoSegundos, String compositoresLetra)
+	{
+		this.titulo = titulo;
+		this.duracaoSegundos = duracaoSegundos;
+		this.compositoresLetra = compositoresLetra;
+	}
 	
 	public int getId() 
 	{
@@ -25,5 +41,13 @@ public class Faixa {
 	public void setDuracaoSegundos(int duracaoSegundos) 
 	{
 		this.duracaoSegundos = duracaoSegundos;
+	}
+
+	public String getCompositoresLetra() {
+		return compositoresLetra;
+	}
+
+	public void setCompositoresLetra(String compositoresLetra) {
+		this.compositoresLetra = compositoresLetra;
 	}
 }

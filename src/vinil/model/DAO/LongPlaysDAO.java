@@ -1,6 +1,7 @@
 package vinil.model.DAO;
 
 import java.util.List;
+import java.sql.*;
 
 import vinil.model.LongPlay;
 
