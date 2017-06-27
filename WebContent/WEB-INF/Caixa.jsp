@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>AREA DO CAIXA</h1>
 
+- Registrar Venda
 </body>
 </html>

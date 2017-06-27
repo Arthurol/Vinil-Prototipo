@@ -4,14 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Resolver</title>
+<title>Insert title here</title>
 </head>
 <body>
+<h1>AREA DO VENDEDOR</h1>
 
-<h2>Como vamos definir as IDs de Funcionários e Discos?</h2>
+- Consultar dados de Long Play.
+- Alterar dados do Long Play.
+- Cadastrar Long Play
+- Cadastrar faixas
+- Cadastrar gravadora
+- Cadastrar autor
 
-
- margin: 0 auto 30px;
-  padding: 50px 30px;
 </body>
 </html>

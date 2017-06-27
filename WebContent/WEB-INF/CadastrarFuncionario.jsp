@@ -18,19 +18,16 @@
 				
 				<form method="POST" action="valida.php">
 					<!--<label>Nome</label>-->
-					<input type="text" name="usuario" placeholder="Digite o Nome" class="form-control"><br>
+					<input type="text" name="nome" placeholder="Digite o Nome" class="form-control"><br>
 					
 					<!--<label>CPF</label>-->
-					<input type="text" name="usuario" placeholder="Digite o CPF" class="form-control"><br>
+					<input type="text" name="cpf" placeholder="Digite o CPF" class="form-control"><br>
 					
-					<!--<label>Endereço</label>-->
-					<input type="password" name="senha" placeholder="Digite a endereço" class="form-control"><br>
-					
-					<!--<label>Telefone(s)</label>-->
-					<input type="password" name="senha" placeholder="Digite (o) telefone(s)" class="form-control"><br>
+					<!--<label>E-mail</label>-->
+					<input type="password" name="e-mail" placeholder="Digite o e-mail" class="form-control"><br>
 					
 					<!--<label>Cargo</label>-->
-					<input type="password" name="senha" placeholder="Digite o cargo" class="form-control"><br>
+					<input type="password" name="cargo" placeholder="Digite o cargo" class="form-control"><br>
 					
 					<!--<label>Senha</label>-->
 					<input type="password" name="senha" placeholder="Digite a senha" class="form-control"><br>
