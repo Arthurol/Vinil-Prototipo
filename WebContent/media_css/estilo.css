@@ -148,16 +148,17 @@
 .container {
   position: relative;
   z-index: 1;
-  max-width: 300px;
+  max-width: 200px;
   margin: 0 auto;
 }
+
 .container:before, .container:after {
   content: "";
   display: block;
   clear: both;
 }
 .container .info {
-  margin: 20px 50px 0 -900px;
+  margin: 5px 50px 40px -900px;
   text-align: center;
 }
 .container .info h1 {
@@ -210,3 +211,36 @@ body:before {
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
 }
+
+#nav{
+	z-index: 2;
+	position: relative;
+  	max-width: 900px;
+  	margin: -110px 142px 0;
+  	float: right;	
+}
+
+/*Configurações Padrões*/
+ul.menu, .menu li, .menu a{ margin:0; padding:0; list-style:none; text-decoration:none;}
+ul.menu ul{ position:absolute; display:none; box-shadow:3px 3px 2px #333;}
+ 
+/* Configurações nivel 1*/
+ul.menu{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:15px; border-radius:5px; padding:0 5px;}
+.menu li{ float:left; width:auto; position:relative;}
+.menu li a{ display:block; padding:0 20px; line-height:45px; height:45px; float:left; transition:all 0.1s linear; }
+ 
+/* Configurações nivel 2*/
+.menu li:hover > ul.submenu-1{ display:block; top:45px; left:0; padding:5px; width:215px; border-radius:0 0 5px 5px;   }
+.menu ul.submenu-1 a{  width:175px; padding:0 20px; border-radius:5px;  }
+ 
+/*Configurações de cores*/
+ 
+/*nivel 1*/
+.menu{background:#CCC; }
+.menu a{ color:#000;}
+.menu li:hover > a{ background:#999;  color:#fff;}
+ 
+/*nivel 2*/
+.submenu-1{ background:#999;}
+.submenu-1 a{color:#fff;}
+.submenu-1 li:hover > a{ background:#666; }

@@ -4,17 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Resolver</title>
 </head>
 <body>
-<h1>AREA DO VENDEDOR</h1>
 
-- Consultar dados de Long Play.
-- Alterar dados do Long Play.
-- Cadastrar Long Play
-- Cadastrar faixas
-- Cadastrar gravadora
-- Cadastrar autor
-
+- Footer
+- Alterar cores menu dropdown
+- Como fazer as passagens entre JSPs de vendedor e gerente? (Logo, Home)
+- msg de cadastro efetuado (botoes em geral)
+- dropdown funcionarios 
 </body>
 </html>
