@@ -23,27 +23,19 @@ Configurador config;
 	            return -1;
 	        }
 	        
-	        CallableStatement upperProc = conn.prepareCall("{? = call inserirgravadora( ?, ?, ?, ? ) }");
-	        upperProc.registerOutParameter(1, Types.INTEGER);
-	        upperProc.setString(2, gravadora.getNome());
-	        upperProc.setString(3, gravadora.getCnpj());
-	        upperProc.setString(4, gravadora.getEndereco());
-	        
-	        //String[] telefones = {);
-	        
-	        //for (int i = 0; i < gravadora.getTelefones().size(); i++)
-	        //{
-	        //	telefones[i] = gravadora.getTelefones().get(i);
-	       // }
+	        CallableStatement cs = conn.prepareCall("{? = call inserirgravadora( ?, ?, ?, ? ) }");
+	        cs.registerOutParameter(1, Types.INTEGER);
+	        cs.setString(2, gravadora.getNome());
+	        cs.setString(3, gravadora.getCnpj());
+	        cs.setString(4, gravadora.getEndereco());
 	        
 	        Array arrayTelefones = conn.createArrayOf("text", gravadora.getTelefones().toArray());
 	        
-	        
-	        upperProc.setArray(5, arrayTelefones);
-	        upperProc.execute();
-	        String retornoFuncao = upperProc.getString(1);
-	        upperProc.close();
-	        return Integer.parseInt(retornoFuncao);
+	        cs.setArray(5, arrayTelefones);
+	        cs.execute();
+	        int retornoFuncao = cs.getInt(1);
+	        cs.close();
+	        return retornoFuncao;
 	        
 		} catch (SQLException e) {
             System.out.println(e.getMessage());

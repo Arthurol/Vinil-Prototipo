@@ -22,6 +22,16 @@ public class Faixa {
 		this.compositoresLetra = compositoresLetra;
 	}
 	
+	public Faixa(String titulo, String compositoresLetra)
+	{
+		this.titulo = titulo;
+		this.compositoresLetra = compositoresLetra;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public int getId() 
 	{
 		return id;
