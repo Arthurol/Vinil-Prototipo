@@ -7,6 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>AREA DO GERENTE</h1>
+
+- Cadastrar funcionário.
+- Cadastrar seção.
+- Consultar dados de Long Play.
+- Alterar dados do Long Play.
+- Cadastrar Long Play
+- Cadastrar faixas
+- Cadastrar gravadora
+- Cadastrar autor
+
 
 </body>
 </html>

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <title>VINIL - Cadastrar Disco</title>
+  <title>VINIL - Cadastrar Long Play</title>
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
@@ -31,7 +31,7 @@
 			    <input type="text" placeholder="Gênero"/>
 			    <input type="text" placeholder="Preço"/>	
 
-			    <a href="IVendedor.jsp"><button>Efetuar cadastro de disco</button></a>
+			    <a href="IVendedor.jsp"><button>Efetuar cadastro de Long Play</button></a>
 			</form>
 	</div>
 
