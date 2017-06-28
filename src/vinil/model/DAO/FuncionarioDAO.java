@@ -1,6 +1,8 @@
 package vinil.model.DAO;
 
 import vinil.model.Funcionario;
+import vinil.model.LongPlay;
+
 import java.sql.*;
 
 public class FuncionarioDAO {
@@ -43,6 +45,33 @@ public class FuncionarioDAO {
             return -1;
 		}
 	}
+	
+	public boolean checaCredencial(String email, String senha)
+	{
+		FaixaDAO faixaDAO = new FaixaDAO();
+		
+		try (Connection conn = config.conectar())
+		{
+	        if (conn == null) {
+	            return null;
+	        }
+	        
+	        PreparedStatement ps = conn.prepareStatement("SELECT * FROM funcionarios WHERE email = ? and senha = ?");
+	        ps.setString(1, email);
+	        ps.setString(2, senha);
+	        
+	        ResultSet rs = ps.executeQuery();
+	        if(rs.next())
+	        	return true;
+	        else
+	        	return false;
+	    
+		} catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+	}
+	
 	
 	public int alterarSenha(int idFuncionario, String novaSenha)
 	{
