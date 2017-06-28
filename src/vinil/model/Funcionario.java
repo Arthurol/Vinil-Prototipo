@@ -33,6 +33,15 @@ public class Funcionario {
 		this.inicioGerencia = inicioGerencia;
 	}
 	
+	public Funcionario(String nome, String cpf, String email, String senha, String cargo)
+	{
+		this.nome = nome;
+		this.setCpf(cpf);
+		this.email = email;
+		this.senha = senha;
+		this.cargo = cargo;
+	}
+	
 	public int getId() {
 		return id;
 	}

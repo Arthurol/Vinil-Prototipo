@@ -6,6 +6,11 @@ public class Secao {
 	private String genero;
 	private int status;
 	
+	public Secao(String genero)
+	{
+		this.genero = genero;
+	}
+	
 	public String getGenero() 
 	{
 		return genero;
