@@ -5,7 +5,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Área do Caixa</title>
+<title>VINIL</title>
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -20,25 +20,31 @@
 
 </head>
 <body>
-<!-- Logo -->
+	<!-- Logo -->
 	<div class="container">
 		<div class="info">
 			<a href="index.jsp"><img src="LogoVinil.png" alt="LogoVinil"></a>
 		</div>
 	</div>
-<!-- /Logo -->
+	<!-- /Logo -->
 
-<!-- Menu Caixa -->
-<div id="nav">
-	<ul class="menu">
-		<li><a href="#">Home</a></li>
-		<li><a href="CaixaRegistrarVenda.jsp">Registrar Venda</a></li>
-	</ul>
-</div>
-<!-- /Menu Caixa -->
+	<!-- Botão Logout -->
+	<div id="logout">
+	<a href="AreaCaixa.jsp"><button class="sair">Sair</button></a>
+	</div>
+	<!-- /Botão Logout -->
 
-<!-- Menu Vendedor -->
-<div id="nav">
+	<!-- Menu Caixa -->
+	<div id="nav">
+		<ul class="menu">
+			<li><a href="#">Home</a></li>
+			<li><a href="CaixaRegistrarVenda.jsp">Registrar Venda</a></li>
+		</ul>
+	</div>
+	<!-- /Menu Caixa -->
+
+	<!-- Menu Vendedor -->
+	<div id="nav">
 		<ul class="menu">
 			<li><a href="#">Home</a></li>
 			<li><a href="#">Long Plays</a>
@@ -57,10 +63,10 @@
 				</ul></li>
 		</ul>
 	</div>
-<!-- /Menu Vendedor -->
+	<!-- /Menu Vendedor -->
 
-<!-- Menu Gerente -->
-<div id="nav">
+	<!-- Menu Gerente -->
+	<div id="nav">
 		<ul class="menu">
 			<li><a href="#">Home</a></li>
 			<li><a href="#">Long Plays</a>
@@ -90,4 +96,4 @@
 				</ul></li>
 		</ul>
 	</div>
-<!-- /Menu Gerente -->
+	<!-- /Menu Gerente -->
