@@ -5,7 +5,7 @@
 		<input name="acao" type="hidden" value="efetuarcadastrolp"/>
 		<input name="titulo" type="text" placeholder="Título" />	
 		<br>
-	<div style="font-size:16px; text-align:left; margin-left:5px;">
+	<div id="dropAutor" style="font-size:16px; text-align:left; margin-left:5px;">
 		<label for="idautor">Autor do Long Play: </label>
 		<select name="idautor" id="idautor">
 			<option selected="selected">Escolha um Autor</option>
@@ -16,8 +16,8 @@
 		</select> 
 	</div> <br>
 	
-	<div style="font-size:16px; text-align:left; margin-left:5px;">
-		<label for="gravadora">Autor do Long Play: </label>
+	<div id="dropGravadora" style="font-size:16px; text-align:left; margin-left:5px;">
+		<label for="gravadora">Gravadora do Long Play: </label>
 		<select name="gravadora" id="idautor">
 			<option selected="selected">Escolha uma Gravadora</option>
 			
@@ -105,7 +105,7 @@
 	 <br><br><br>
 	 
 	 <a href="Vinil?efetuarcadastrolp">
-		<input type="submit" type="text" placeholder="Efetuar cadastro" />
+		<input id="submit" style="color: WHITE" type="submit" type="text" placeholder="Efetuar cadastro" />
 	 </a>
 	</form>
 </div>

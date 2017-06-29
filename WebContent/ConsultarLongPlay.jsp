@@ -4,7 +4,7 @@
 		<form class="cadastro-form" action="Vinil">
 			<input type="text" name="titulo" placeholder="Título do Long Play" />
 			<input name="acao" type="hidden" value="consultarlp" />
-			<input type="submit" value="Consultar"></input>
+			<input id="submit" style="color: WHITE" type="submit" value="Consultar"></input>
 
 		</form>
 	</div>
@@ -55,6 +55,7 @@
             <br><br>
             <div class="formCadastro"   id="cadastroLP">
 			<form class="cadastro-form">
+            	<div style="text-align:left">
             	<% int contadorFaixas = 1; %>
             	
             	 <c:forEach items ="${listalongplays[status.index].faixas}" var="faixa">
@@ -64,6 +65,7 @@
             		 <% out.print("Compositores da Letra: "); %><c:out value= "${faixa.compositoresLetra}"/> <br><br>
             	 <% contadorFaixas ++; %>
             	 </c:forEach> 
+            	 </div>
         </form>
 </div>
 		</c:forEach> 

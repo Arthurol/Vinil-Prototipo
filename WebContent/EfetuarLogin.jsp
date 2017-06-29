@@ -5,8 +5,6 @@
 <html lang="pt-br">
 <head>
 
-<link href="css/signin.css" rel="stylesheet">
-
 <title>VINIL - Login</title>
 
 <meta charset="utf-8">
@@ -29,14 +27,14 @@
 <body>
 	<div class="container">
 		<div class="info">
-			<a href="EfetuarLogin.jsp"><img src="LogoVinil.png"
+			<a href="EfetuarLogin.jsp"><img src="media_imagens/LogoVinil.png"
 				alt="LogoVinil"></a>
 		</div>
 	</div>
 
 	<div class="formLogin">
   		<div class="thumbnail">
-			<img src="person.png" />
+			<img src="media_imagens/person.png" />
 		</div>
 
 		<form class="login-form" action="Vinil">
@@ -59,14 +57,7 @@
 				</div>
 			</c:if>
 		</form>
-	</div>
-
-	<script
-		src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-	<script src="js/index.js"></script>
-
-	
+	</div>	
 
 </body>
 </html>

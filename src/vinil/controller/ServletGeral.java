@@ -103,7 +103,7 @@ public class ServletGeral extends HttpServlet{
 				if (funcionario.getSenha().equals(request.getParameter("senha")))
 				{
 					session.setAttribute("funcionario", funcionario);
-					session.setAttribute("alerta", "Bem Vindo " + funcionario.getNome() + "!");
+					session.setAttribute("welcome", "Bem-vindo(a), " + funcionario.getNome() + "!");
 					response.sendRedirect("Homepage.jsp");
 				}
 				else 

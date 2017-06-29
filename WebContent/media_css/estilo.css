@@ -1,7 +1,55 @@
-/* verde agua #30c984*/
+/* verde agua #30c984 */
+/* rosa grená #EF3B3A */
+
+/* Submits */
+#submit {
+	background: #EF3B3A;
+	width: 30%;
+}
+/* END Submits*/
+/*
+#textFaixas {
+	text-align:left;
+}
+*/
+
+/*
+#protoV {
+	width: 100%;
+	padding: 20px;
+}
+*/
+
+/* Welcome */
+#msgWelcome{
+  position: relative;
+  z-index: 1;
+  outline: 0;
+  background: #fff;
+  width: 18%;
+  border: 0;
+  padding: 5px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  float: right;
+  margin-top: -182px;
+  margin-right: 220px; 	
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+/* END Welcome */
+
+/* Msgs e Alertas */
+#msgAlert {
+  	position: relative;
+  	z-index: 1;
+}
+/* END Msgs e Alertas */
 
 /* Table Gravadoras*/
-
 #tableGravadoras {
 	margin-top: 100px;
 }
@@ -61,7 +109,7 @@ th, td {
 
 tr {background-color: #EF3B3A}
 
-tr:nth-child(even) {background-color: #f2f2f2}
+tr:nth-child(even) {background-color: #fff}
 
 th {
 	backgroun-color: #4CAF50;
@@ -81,15 +129,26 @@ th {
     border: none;
     cursor: pointer;
 }
-
+/*
 #dropAutor{
-	float: left;
+	display: block;
+	position: relative;
+	max-width: 200px;
+	float:right;
+	margin-right: 350px;
+	margin-top: 5px;
 }
 
 #dropGravadora{
-	float: left;
+	display: inline;
+	position: relative;
+	float: right;
+	max-width: 200px;
+	margin-right: 200px;
+	margin-top: -5px;
+	z-index: 1;
 }
-
+*/
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
@@ -104,7 +163,7 @@ th {
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 10;
 }
 
 /* Links inside the dropdown */
@@ -160,7 +219,7 @@ margin-left: 10px;
   z-index: 1;
   max-width: 200px;
   float: right;
-  margin: -150px 150px 0;
+  margin: -150px 155px 0;
 }
 /* END Botao Logout */
 
@@ -177,6 +236,7 @@ margin-left: 10px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   text-align: center;
+  border: 1px solid #ddd;
 }
 .formCadastro .thumbnail {
   background: #EF3B3A;
@@ -207,6 +267,7 @@ margin-left: 10px;
   border-bottom-right-radius: 3px;
   box-sizing: border-box;
   font-size: 14px;
+  border: 1px solid #ddd;
 }
 .formCadastro button {
   outline: 0;
@@ -376,24 +437,11 @@ body:before {
   height: 100%;
 }
 
-#video {
-  z-index: -99;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-}
-
 #nav{
 	z-index: 2;
 	position: relative;
   	max-width: 900px;
-  	margin: -110px 142px 0;
+  	margin: -90px 142px 0;
   	float: right;	
 }
 

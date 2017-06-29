@@ -27,7 +27,7 @@
 	<!-- Logo -->
 	<div class="container">
 		<div class="info">
-			<a href="Homepage.jsp"><img src="LogoVinil.png" alt="LogoVinil"></a>
+			<a href="Homepage.jsp"><img src="media_imagens/LogoVinil.png" alt="LogoVinil"></a>
 		</div>
 	</div>
 	<!-- /Logo -->
@@ -100,7 +100,8 @@
 				</ul></li>
 		</ul>
 	</div>
-	
+
+<div id="msgAlert">	
 	<c:if test="${not empty erro}">
 		<div style="font-size:16px; color:red; text-align:center">
 			<c:out value="${erro}">
@@ -112,7 +113,7 @@
 	</c:if>
 
 	<c:if test="${not empty alerta}">
-	<div style="font-size:16px; color:blue; text-align:center">
+	<div style="font-size: 16px; color: blue; text-align:center">
 		<c:out value="${alerta}">
 		</c:out>
 		<%
@@ -121,5 +122,7 @@
 		<br><br>
 	</div>
 	</c:if>
-	
+</div>	
+
+
 	<!-- /Menu Gerente -->

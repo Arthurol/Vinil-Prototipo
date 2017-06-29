@@ -7,7 +7,7 @@
 			<input id="endereco" name="endereco" type="text" placeholder="Endereço" />
 			<input id="telefone" name="telefone" type="text" placeholder="Telefone" />
 			<input name="acao" type="hidden" value="cadastrargravadora" /> 
-				<button><input type="submit" value="Efetuar Cadastro"></input></button>
+				<input id="submit" style="color: WHITE" type="submit" value="Efetuar Cadastro"></input>
 		</form>
 		
 	</div>
