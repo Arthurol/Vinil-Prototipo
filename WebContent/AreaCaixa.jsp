@@ -27,12 +27,12 @@
 		</div>
 	</div>
 
-<div id="nav">
-	<ul class="menu">
-		<li><a href="#">Home</a></li>
-		<li><a href="CaixaRegistrarVenda.jsp">Registrar Venda</a></li>
-	</ul>
-</div>
+	<div id="nav">
+		<ul class="menu">
+			<li><a href="#">Home</a></li>
+			<li><a href="CaixaRegistrarVenda.jsp">Registrar Venda</a></li>
+		</ul>
+	</div>
 
 	<div class="formCadastro">
 		<form class="cadastro-form">

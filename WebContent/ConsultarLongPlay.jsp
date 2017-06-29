@@ -23,14 +23,14 @@
 <body>
 	<div class="container">
 		<div class="info">
-			<a href="AreaVendedor.jsp"><img src="LogoVinil.png"
+			<a href="AreaGerente.jsp"><img src="LogoVinil.png"
 				alt="LogoVinil"></a>
 		</div>
 	</div>
 
 	<div id="nav">
 		<ul class="menu">
-			<li><a href="AreaVendedor.jsp">Home</a></li>
+			<li><a href="AreaGerente.jsp">Home</a></li>
 			<li><a href="CadastrarLongPlay.jsp">Long Plays</a>
 				<ul class="submenu-1">
 					<li><a href="ConsultarLongPlay.jsp">Consultar Long Play</a></li>
@@ -38,14 +38,25 @@
 				</ul></li>
 			<li><a href="#">Autores</a>
 				<ul class="submenu-1">
-					<li><a href="VendedorCadastrarAutor.jsp">Cadastrar Autor</a></li>
+					<li><a href="GerenteCadastrarAutor.jsp">Cadastrar Autor</a></li>
 				</ul></li>
 			<li><a href="#">Gravadoras</a>
 				<ul class="submenu-1">
-					<li><a href="VendedorCadastrarGravadora.jsp">Cadastrar
+					<li><a href="GerenteCadastrarGravadora.jsp">Cadastrar
 							Gravadora</a></li>
-					<li><a href="VendedorListarGravadoras.jsp">Listar
+					<li><a href="GerenteListarGravadoras.jsp">Listar
 							Gravadoras</a></li>
+				</ul></li>
+			<li><a href="#">Seções</a>
+				<ul class="submenu-1">
+					<li><a href="GerenteCadastrarSecao.jsp">Cadastrar Seções</a></li>
+					<li><a href="GerenteListarSecao.jsp">Listar Seções</a></li>
+				</ul></li>
+			<li><a href="#">Funcionários</a>
+				<ul class="submenu-1">
+					<li><a href="CadastrarFuncionarios.jsp">Cadastrar
+							Funcionários</a></li>
+					<li><a href="ListarFuncionarios.jsp">Listar Funcionários</a></li>
 				</ul></li>
 		</ul>
 	</div>
@@ -57,6 +68,5 @@
 
 		</form>
 	</div>
-
 </body>
 </html>

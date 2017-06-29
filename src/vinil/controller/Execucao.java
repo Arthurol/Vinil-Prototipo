@@ -51,15 +51,12 @@ public class Execucao {
 		//Autor autor = autorDAO.getAutorByName("Teste");
 		//System.out.println("Id: " + autor.getId() + '\n' + "Nome: " + autor.getNome());
 
-		autorDAO.adicionarAutor(new Autor("Deep Purple"));
+		autorDAO.adicionarAutor(new Autor("Whitesnake"));
 		
-		List<Faixa> faixas = new ArrayList<Faixa>();
-		faixas.add(new Faixa("Sometimes I Feel Like Screaming", "Ian Gillian, Steve Morse"));
-		faixas.add(new Faixa("Pictures of Home", "Ian Gillian, Roger Glover, Ritchie Blackmore"));
 		
-		LongPlay longPlay = new LongPlay("Deep Purple in Concert", new ArrayList<Integer>(autorDAO.getAutorByName("Deep Purple").getId()), 1999, 9, "Rock Internacional", 20, 60.00, faixas);
+		
 		System.out.println("Fim");
 		
-		longPlayDAO.adicionaLongPlay(longPlay);
+		//longPlayDAO.adicionaLongPlay(longPlay);
 	}
 }

@@ -11,7 +11,7 @@ public class Configurador {
         try
         {
             Class.forName("org.postgresql.Driver");
-            String url = "jdbc:postgresql://localhost/vinil";
+            String url = "jdbc:postgresql://localhost:5432/vinil";
         	Properties props = new Properties();
         	props.setProperty("user","postgres");
         	props.setProperty("password","postgres");

@@ -104,7 +104,7 @@ public class AutorDAO {
 		Autor autor = new Autor();
 		autor.setId(rs.getInt("id"));
 		autor.setNome(rs.getString("nome"));
-		
+		rs.close();
 		return autor;
 	}
 	
@@ -119,6 +119,7 @@ public class AutorDAO {
 			autor.setNome(rs.getString("nome"));
 			listaAutores.add(autor);
 		}
+		rs.close();
 		return listaAutores;
 	}
 	

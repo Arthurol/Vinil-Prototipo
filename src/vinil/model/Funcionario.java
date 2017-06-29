@@ -101,4 +101,8 @@ public class Funcionario {
 		this.inicioGerencia = inicioGerencia;
 	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+
 }

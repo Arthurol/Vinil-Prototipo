@@ -48,11 +48,12 @@ Configurador config;
 	        	
 	        	contador++;
 	        }
-	        
+	        rs1.close();
 	        
 	        
 	        PreparedStatement ps2 = conn.prepareStatement("SELECT * FROM faixas WHERE id_faixa in (" + idsFaixas + ")");
 	        ResultSet rs2 = ps2.executeQuery();
+	        
 	        return listaFaixasFromResultSet(rs2);
 	        
 	        
@@ -74,7 +75,7 @@ Configurador config;
 			faixa.setCompositoresLetra(rs.getString("compositores_letra"));
 			listaFaixas.add(faixa);
 		}
-		
+		rs.close();
 		return listaFaixas;
 	}
 

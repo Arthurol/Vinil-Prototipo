@@ -1,9 +1,11 @@
 package vinil.model.DAO;
 
+import vinil.model.Autor;
 import vinil.model.Funcionario;
 import vinil.model.LongPlay;
 
 import java.sql.*;
+import java.util.Calendar;
 
 public class FuncionarioDAO {
 
@@ -53,7 +55,7 @@ public class FuncionarioDAO {
 		try (Connection conn = config.conectar())
 		{
 	        if (conn == null) {
-	            return null;
+	            return false;
 	        }
 	        
 	        PreparedStatement ps = conn.prepareStatement("SELECT * FROM funcionarios WHERE email = ? and senha = ?");
@@ -61,17 +63,66 @@ public class FuncionarioDAO {
 	        ps.setString(2, senha);
 	        
 	        ResultSet rs = ps.executeQuery();
-	        if(rs.next())
+	        rs.close();
+	        if (!rs.isBeforeFirst()) 
+	        {    
+	        	return false; 
+	        }
 	        	return true;
-	        else
-	        	return false;
-	    
+
 		} catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
         }
 	}
 	
+	public Funcionario getFuncionarioByEmail(String email)
+	{
+		try (Connection conn = config.conectar())
+		{
+	        if (conn == null) {
+	            return null;
+	        }
+	        
+	        PreparedStatement ps = conn.prepareStatement("SELECT * FROM funcionarios WHERE email = ?");
+	        ps.setString(1, email);
+ 	        ResultSet rs = ps.executeQuery();
+	        
+	        if (!rs.isBeforeFirst()) 
+	        {    
+	        	rs.close();
+	        	return null;
+	        }	
+	       
+	        return funcionarioFromResultSet(rs);
+	        
+		} catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+	}
+	
+	private Funcionario funcionarioFromResultSet(ResultSet rs) throws SQLException
+	{
+		rs.next();
+		Funcionario funcionario = new Funcionario();
+		funcionario.setId(rs.getInt("id"));
+		funcionario.setNome(rs.getString("nome"));
+		funcionario.setCpf(rs.getString("cpf"));
+		funcionario.setEmail(rs.getString("email"));
+		funcionario.setCargo(rs.getString("cargo"));
+		
+		if (rs.getDate("inicio_gerencia") != null)
+		{
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(rs.getDate("inicio_gerencia"));
+			funcionario.setInicioGerencia(cal);
+		}
+		  
+		funcionario.setSenha(rs.getString("senha"));
+		rs.close();
+		return funcionario;
+	}
 	
 	public int alterarSenha(int idFuncionario, String novaSenha)
 	{
