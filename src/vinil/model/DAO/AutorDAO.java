@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import vinil.model.Autor;
+import vinil.model.Gravadora;
 
 
 public class AutorDAO {
@@ -126,6 +127,33 @@ public class AutorDAO {
 		
 		return listaAutores;
 	}
+	
+	public List<Autor> listagemAutores()
+	{
+		List<Autor> autores = new ArrayList<Autor>();
+	
+		try (Connection conn = config.conectar())
+		{
+	        if (conn == null) {
+	            return null;
+	        }
+	        
+	        PreparedStatement ps = conn.prepareStatement("SELECT * FROM autores");
+	        ResultSet rs = ps.executeQuery();
+	        
+	        while (rs.next())
+	        {
+	        	autores.add(new Autor(rs.getString("nome")));
+	        }
+	        rs.close();
+	        return autores;
+	        
+		} catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+	}
+		
 	
 	/*
 	public int removerAutor(int idAutor)

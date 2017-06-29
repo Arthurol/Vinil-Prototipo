@@ -54,7 +54,7 @@ public class LongPlayDAO {
 	            return null;
 	        }
 	        
-	        PreparedStatement ps = conn.prepareStatement("SELECT * FROM longplays WHERE titulo like ?");
+	        PreparedStatement ps = conn.prepareStatement("SELECT * FROM longplays WHERE LOWER (titulo) LIKE LOWER (?)");
 	        ps.setString(1, "%" + titulo + "%");
 	        ResultSet rs = ps.executeQuery();
 	        

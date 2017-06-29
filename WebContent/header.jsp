@@ -54,7 +54,7 @@
 			<li><a href="#">Long Plays</a>
 				<ul class="submenu-1">
 					<li><a href="ConsultarLongPlay.jsp">Consultar Long Play</a></li>
-					<li><a href="CadastrarLongPlay.jsp">Cadastrar Long Play</a></li>
+					<li><a href="/Vinil-Prototipo/Vinil?acao=preparacadastrarlp">Cadastrar Long Play</a></li>
 				</ul></li>
 			<li><a href="#">Autores</a>
 				<ul class="submenu-1">
@@ -76,7 +76,7 @@
 			<li><a href="#">Long Plays</a>
 				<ul class="submenu-1">
 					<li><a href="ConsultarLongPlay.jsp">Consultar Long Play</a></li>
-					<li><a href="CadastrarLongPlay.jsp">Cadastrar Long Play</a></li>
+					<li><a href="/Vinil-Prototipo/Vinil?acao=preparacadastrarlp">Cadastrar Long Play</a></li>
 				</ul></li>
 			<li><a href="#">Autores</a>
 				<ul class="submenu-1">

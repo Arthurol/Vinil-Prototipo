@@ -1,77 +1,98 @@
 <%@include file="header.jsp"%>
 
 <div class="formCadastro"   id="cadastroLP">
-	<form class="cadastro-form">
-		<input name="tituloLP" type="text" placeholder="Título" />	
-		<input name="anoGravacao" id="anoLP" type="text" placeholder="Ano de gravação" />
+	<form class="cadastro-form" id="cadastroLp" action="Vinil">
+		<input name="titulo" type="text" placeholder="Título" />	
+		<br>
+	<div style="font-size:16px; text-align:left; margin-left:5px;">
+		<label for="idautor">Autor do Long Play: </label>
+		<select name="idautor" id="idautor">
+			<option selected="selected">Escolha um Autor</option>
+			
+     			<c:forEach var="autor" items ="${listaAutores}">
+         	 		<option value="${autor.id}">${autor.nome}</option>
+     			</c:forEach>
+		</select> 
+	</div> <br>
 		
-		<div class="dropdown" id="dropAutor">
-			<button class="dropbtn">Autor(es)</button>
-				<div class="dropdown-content">
-					<a href="javascript:void(0)">
-						<input name="autor" placeholder="Autor">
-					</a>
-				</div>
-		</div>
-	
-		<div class="dropdown" id="dropGravadora">
-			<button class="dropbtn">Gravadora</button>
-			<div class="dropdown-content">
-				<a href="javascript:void(0)">
-					<input name="gravadora" placeholder="Gravadora">
-				</a>
-			</div>
-		</div>
-		
+		<input name="anogravacao" id="anoLP" type="text" placeholder="Ano de gravação" />			
 		<input name="genero" type="text" placeholder="Gênero" />
 		<input name="preco" type="text" placeholder="Preço" />
 
-		<script type="text/javascript">
-			function duplicarCampos() {
-				var clone = document.getElementById('origem').cloneNode(true);
-				var destino = document.getElementById('destino');
-				destino.appendChild(clone);
-				var camposClonados = clone.getElementsByTagName('input');
-				for (i = 0; i < camposClonados.length; i++) {
-					camposClonados[i].value = '';
-				}
-			}
-			function removerCampos(id) {
-				var node1 = document.getElementById('destino');
-				node1.removeChild(node1.childNodes[0]);
-			}
-			
-		</script>
-<!-- 
-		<script type="text/javascript">
-			function limpaCampo(id_campo1, id_campo2) {
-				document.getElementById(id_campo1).value = "";
-				document.getElementById(id_campo2).value = "";
-			}
-		</script>
-		 -->
 
 	<div id="origem" align="center">
-		<input name="tituloFaixa" type="text" placeholder="Título da faixa" />
-		<input name="duracaoSegundos" type="text" placeholder="Duração da faixa em segundos" />
-		<input name="compositores" type="text" placeholder="Compositor(es)" />
+			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 1"); %></h2><br>
+		<input name="titulofaixa1" type="text" placeholder="Título" />
+		<input name="duracaosegundos1" type="text" placeholder="Duração em segundos" />
+		<input name="compositores1" type="text" placeholder="Compositor(es)" />
 	</div>
 	
-	<div id="destino">
+	<div id="origem" align="center">
+			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 2"); %></h2><br>
+		<input name="titulofaixa2" type="text" placeholder="Título" />
+		<input name="duracaosegundos2" type="text" placeholder="Duração em segundos" />
+		<input name="compositores2" type="text" placeholder="Compositor(es)" />
 	</div>
 	
-	<!-- 
-	<img  src="../img/add.gif" style="cursor: pointer;" onclick="duplicarCampos();">
-	<img  src="../img/cross.gif" style="cursor: pointer;" onclick="removerCampos(this);">
-	 -->
+	<div id="origem" align="center">
+			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 3"); %></h2><br>
+		<input name="titulofaixa3" type="text" placeholder="Título" />
+		<input name="duracaosegundos3" type="text" placeholder="Duração em segundos" />
+		<input name="compositores3" type="text" placeholder="Compositor(es)" />
+	</div>
 	
-	<img  id="maisfaixas" src="+faixas.png" style="cursor: pointer;" onclick="duplicarCampos();">
-	<!-- 
-		<button style="cursor: pointer;" onclick="removerCampos(this);">Remover faixa</button>
-	 -->
+	<div id="origem" align="center">
+			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 4"); %></h2><br>
+		<input name="titulofaixa4" type="text" placeholder="Título" />
+		<input name="duracaosegundos4" type="text" placeholder="Duração em segundos" />
+		<input name="compositores4" type="text" placeholder="Compositor(es)" />
+	</div>
+	
+	<div id="origem" align="center">
+			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 5"); %></h2><br>
+		<input name="titulofaixa5" type="text" placeholder="Título" />
+		<input name="duracaosegundos5" type="text" placeholder="Duração em segundos" />
+		<input name="compositores5" type="text" placeholder="Compositor(es)" />
+	</div>
+	
+	<div id="origem" align="center">
+			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 6"); %></h2><br>
+		<input name="titulofaixa6" type="text" placeholder="Título" />
+		<input name="duracaosegundos6" type="text" placeholder="Duração em segundos" />
+		<input name="compositores6" type="text" placeholder="Compositor(es)" />
+	</div>
+	
+	<div id="origem" align="center">
+			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 7"); %></h2><br>
+		<input name="titulofaixa7" type="text" placeholder="Título" />
+		<input name="duracaosegundos7" type="text" placeholder="Duração em segundos" />
+		<input name="compositores7" type="text" placeholder="Compositor(es)" />
+	</div>
+	
+	<div id="origem" align="center">
+			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 8"); %></h2><br>
+		<input name="titulofaixa8" type="text" placeholder="Título" />
+		<input name="duracaosegundos8" type="text" placeholder="Duração em segundos" />
+		<input name="compositores8" type="text" placeholder="Compositor(es)" />
+	</div>
+	
+	<div id="origem" align="center">
+			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 9"); %></h2><br>
+		<input name="titulofaixa9" type="text" placeholder="Título" />
+		<input name="duracaosegundos9" type="text" placeholder="Duração em segundos" />
+		<input name="compositores9" type="text" placeholder="Compositor(es)" />
+	</div>
+	
+	<div id="origem" align="center">
+			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 10"); %></h2><br>
+		<input name="titulofaixa10" type="text" placeholder="Título" />
+		<input name="duracaosegundos10" type="text" placeholder="Duração em segundos" />
+		<input name="compositores10" type="text" placeholder="Compositor(es)" />
+	</div>
+	
 	 <br><br><br>
 	 
-	 <a href="AreaGerente.jsp">
+	 <a href="Vinil?efetuarcadastrolp">
 		<input type="submit" type="text" placeholder="Efetuar cadastro" />
 	 </a>
 	</form>

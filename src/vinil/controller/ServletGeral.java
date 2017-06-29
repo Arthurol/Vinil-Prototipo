@@ -79,9 +79,15 @@ public class ServletGeral extends HttpServlet{
 			 		session.setAttribute("listagravadoras", listaGravadoras);
 			 		response.sendRedirect("ListarGravadoras.jsp");
 			 		break;
+			 		
 			 	case "consultarlp":
 			 		consultarLongPlay(request, response, session);
 			 		response.sendRedirect("ConsultarLongPlay.jsp");
+			 		
+			 	case "preparacadastrarlp":
+			 		preparaCadastroLp(request, response, session);
+			 		response.sendRedirect("CadastrarLongPlay.jsp");
+			 	case "efetuarcadastrolp":
 			 }
 		 }
 		 
@@ -227,7 +233,7 @@ public class ServletGeral extends HttpServlet{
 				 break;
 		 }
 		 
-		 int idSecao = request.getParameter("idgravadora").isEmpty() ? -1 : Integer.parseInt(request.getParameter("idgravadora"));
+		 int idSecao = request.getParameter("idsecao").isEmpty() ? -1 : Integer.parseInt(request.getParameter("idsecao"));
 		 
 		 
 		 LongPlay longPlay = new LongPlay(request.getParameter("titulo"), listaIdAutores, Integer.parseInt(request.getParameter("anogravacao")), Integer.parseInt(request.getParameter("idgravadora")) ,idSecao, 
@@ -287,6 +293,16 @@ public class ServletGeral extends HttpServlet{
 		 return true;
 		 
 	  }
+	 
+	 public boolean preparaCadastroLp(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+	 {
+		 AutorDAO autorDAO = new AutorDAO();
+		 List<Autor> autores = new ArrayList<Autor>();
+		 autores = autorDAO.listagemAutores();
+		 
+		 session.setAttribute("listaAutores", autores);
+		 return false;
+	 }
 	 
 	
 }

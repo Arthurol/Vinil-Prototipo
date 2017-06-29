@@ -4,28 +4,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@include file="header.jsp"%>
 
-<style>
-table, th, td {
-   border: 2px solid black;
-   padding: 10px 0;
-}
-table {
-	border-collapse: separate;
- 	border-spacing: 10px 0;
- 	 
-}
-th {
-	font-size: 24px;
-	color:red;
-}
-</style>
+<h1>Gravadoras</h1>
 
-<div class="formCadastro">
-
-        <div class="forceColor2"></div>
-        <div class="topbar2">
-            <div class="spanColor2"></div>
-            
+<div style="overflow-x:auto;" id="tableGravadoras">            
             <table>
             <tr> 
             	<th>ID</th> 
@@ -53,7 +34,6 @@ th {
             
             </table>
 		</div>
-</div>
 
 </body>
 </html>
