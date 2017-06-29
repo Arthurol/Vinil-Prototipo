@@ -49,6 +49,16 @@ public class ServletGeral extends HttpServlet{
 			 		session.setAttribute("longPlay", longPlay);
 			 		response.sendRedirect("EfetuarLogin.jsp");
 			 		break;
+			 		
+			 	case "logout":
+			 		session.setAttribute("funcionario", null);
+			 		response.sendRedirect("EfetuarLogin.jsp");
+			 		break;
+		 		
+			 	case "cadastrarautor":
+			 		cadastrarAutor(request, response, session);
+			 		response.sendRedirect("CadastrarAutor.jsp");
+			 		break;
 			 	
 			 }
 		 }
@@ -75,6 +85,7 @@ public class ServletGeral extends HttpServlet{
 			{
 				if (funcionario.getSenha().equals(request.getParameter("senha")))
 				{
+					session.setAttribute("funcionario", funcionario);
 					session.setAttribute("alerta", "Bem Vindo " + funcionario.getNome() + "!");
 					response.sendRedirect("Homepage.jsp");
 				}
@@ -90,6 +101,23 @@ public class ServletGeral extends HttpServlet{
 				response.sendRedirect("EfetuarLogin.jsp");
 			}
 	 	}
+	 }
+	 
+	 public boolean cadastrarAutor(HttpServletRequest request, HttpServletResponse response, HttpSession session)
+	 {
+		 AutorDAO autorDAO = new AutorDAO();
+		 Autor autor = new Autor(request.getParameter("nomeautor"));
+	
+		 if (autorDAO.adicionarAutor(autor) == 0)
+		 {
+			 session.setAttribute("alerta", "Autor " + autor.getNome() + " cadastrado com sucesso!");
+			 return true;
+		 }	 
+		 else
+		 {
+			 session.setAttribute("erro", "O autor " + autor.getNome() + " já está cadastrado. Entre com outro nome.");
+			 return false;
+		 }
 	 }
 	
 }
