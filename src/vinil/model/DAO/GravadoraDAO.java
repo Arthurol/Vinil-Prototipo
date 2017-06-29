@@ -16,7 +16,6 @@ Configurador config;
 	public int adicionarGravadora(Gravadora gravadora)
 	{
 		
-		
 		try (Connection conn = config.conectar())
 		{
 	        if (conn == null) {
@@ -41,7 +40,5 @@ Configurador config;
             System.out.println(e.getMessage());
             return -1;
         }
-		
 	}
-	
 }

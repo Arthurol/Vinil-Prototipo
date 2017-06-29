@@ -10,9 +10,11 @@ import javax.servlet.http.*;
 import vinil.model.Autor;
 import vinil.model.Faixa;
 import vinil.model.Funcionario;
+import vinil.model.Gravadora;
 import vinil.model.LongPlay;
 import vinil.model.DAO.AutorDAO;
 import vinil.model.DAO.FuncionarioDAO;
+import vinil.model.DAO.GravadoraDAO;
 
 public class ServletGeral extends HttpServlet{
 
@@ -59,7 +61,12 @@ public class ServletGeral extends HttpServlet{
 			 		cadastrarAutor(request, response, session);
 			 		response.sendRedirect("CadastrarAutor.jsp");
 			 		break;
-			 	
+			 		
+			 	case "cadastrargravadora":
+			 		cadastrarGravadora(request, response, session);
+			 		response.sendRedirect("CadastrarGravadora.jsp");
+			 		break;
+			 	case "cadastrarlp":
 			 }
 		 }
 		 
@@ -72,7 +79,8 @@ public class ServletGeral extends HttpServlet{
       
 	 }
 	 
-	 public void login(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException
+
+	public void login(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException
 	 {	
 
 		FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
@@ -106,6 +114,13 @@ public class ServletGeral extends HttpServlet{
 	 public boolean cadastrarAutor(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 	 {
 		 AutorDAO autorDAO = new AutorDAO();
+		 
+		 if	(request.getParameter("nomeautor").isEmpty())
+		 {
+			 session.setAttribute("erro", "Preencha o nome do Autor");
+			 return false;
+		 }
+		 
 		 Autor autor = new Autor(request.getParameter("nomeautor"));
 	
 		 if (autorDAO.adicionarAutor(autor) == 0)
@@ -119,5 +134,31 @@ public class ServletGeral extends HttpServlet{
 			 return false;
 		 }
 	 }
+	 
+	 public boolean cadastrarGravadora (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+		 GravadoraDAO gravadoraDAO = new GravadoraDAO();
+		 
+		 if	(request.getParameter("razaosocial").isEmpty() || request.getParameter("cnpj").isEmpty())
+		 {
+			 session.setAttribute("erro", "A razão social e o cnpj são obrigatórios");
+			 return false;
+		 }
+		 
+		 List<String> lista = new ArrayList<String>();
+		 lista.add(request.getParameter("telefone"));
+		 Gravadora gravadora = new Gravadora(request.getParameter("razaosocial"), request.getParameter("cnpj"), request.getParameter("endereco"), lista);
+	
+		 if (gravadoraDAO.adicionarGravadora(gravadora) == 0)
+		 {
+			 session.setAttribute("alerta", "Gravadora " + gravadora.getNome() + " cadastrada com sucesso!");
+			 return true;
+		 }	 
+		 else
+		 {
+			 session.setAttribute("erro", "A gravadora " + gravadora.getNome() + " já está cadastrada. Entre com outras credenciais.");
+			 return false;
+		 }
+			
+		}
 	
 }

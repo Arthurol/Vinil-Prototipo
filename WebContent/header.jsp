@@ -21,17 +21,21 @@
 
 </head>
 <body>
+	<c:if test="${empty funcionario}">
+		<c:redirect url = "EfetuarLogin.jsp"/>
+	</c:if>
+
 	<!-- Logo -->
 	<div class="container">
 		<div class="info">
-			<a href="index.jsp"><img src="LogoVinil.png" alt="LogoVinil"></a>
+			<a href="Homepage.jsp"><img src="LogoVinil.png" alt="LogoVinil"></a>
 		</div>
 	</div>
 	<!-- /Logo -->
 
 	<!-- Botão Logout -->
 	<div id="logout">
-	<a href="AreaCaixa.jsp"><button class="sair">Sair</button></a>
+	<a href="Vinil?acao=logout"><button class="sair">Sair</button></a>
 	</div>
 	<!-- /Botão Logout -->
 
@@ -115,6 +119,7 @@
 		<%
 			request.setAttribute("alerta", null);
 		%>
+		<br><br>
 	</div>
 	</c:if>
 	
