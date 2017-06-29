@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -41,7 +40,7 @@
 		</div>
 
 		<form class="login-form" action="Vinil">
-				<input id="email" name="email" type="text" placeholder="ID de usuário" /> 
+				<input id="email" name="email" type="text" placeholder="ID de usuÃ¡rio" /> 
 				<input id="senha" name="senha" type="password" placeholder="Senha" /> 
 				<input name="acao" type="hidden" value="login" />
 				<input type="submit" value="Login"></input>

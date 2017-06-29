@@ -17,11 +17,7 @@ public class Gravadora {
 		this.nome = "";
 		this.cnpj = "";
 		this.endereco = "";
-		
-		for(int i = 0; i < this.telefones.size(); i++)
-		{
-			this.telefones.set(i, "");
-		}
+		this.telefones = null;
 	}
 	
 	public Gravadora(String nome, String cnpj, String endereco, List<String> telefones)
@@ -32,12 +28,12 @@ public class Gravadora {
 		this.endereco = endereco;
 		this.telefones = telefones;
 		
-		//for(int i = 0; i < this.telefones.size(); i++)
-		//{
-		//	this.telefones.add(telefones.get(i));
-		//}
 	}
 	
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getNome() 
 	{
 		return nome;

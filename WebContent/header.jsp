@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,16 +32,16 @@
 	</div>
 	<!-- /Logo -->
 
-	<!-- Bot„o Logout -->
+	<!-- Bot√£o Logout -->
 	<div id="logout">
 	<a href="Vinil?acao=logout"><button class="sair">Sair</button></a>
 	</div>
-	<!-- /Bot„o Logout -->
+	<!-- /Bot√£o Logout -->
 
 	<!-- Menu Caixa -->
 	<div id="nav">
 		<ul class="menu">
-			<li><a href="#">Home</a></li>
+			<li><a href="Homepage.jsp">Home</a></li>
 			<li><a href="CaixaRegistrarVenda.jsp">Registrar Venda</a></li>
 		</ul>
 	</div>
@@ -51,7 +50,7 @@
 	<!-- Menu Vendedor -->
 	<div id="nav">
 		<ul class="menu">
-			<li><a href="#">Home</a></li>
+			<li><a href="Homepage.jsp">Home</a></li>
 			<li><a href="#">Long Plays</a>
 				<ul class="submenu-1">
 					<li><a href="ConsultarLongPlay.jsp">Consultar Long Play</a></li>
@@ -64,7 +63,7 @@
 			<li><a href="#">Gravadoras</a>
 				<ul class="submenu-1">
 					<li><a href="CadastrarGravadora.jsp">Cadastrar Gravadora</a></li>
-					<li><a href="ListarGravadoras.jsp">Listar Gravadoras</a></li>
+					<li><a href="/Vinil-Prototipo/Vinil?acao=listargravadoras">Listar Gravadoras</a></li>
 				</ul></li>
 		</ul>
 	</div>
@@ -73,7 +72,7 @@
 	<!-- Menu Gerente -->
 	<div id="nav">
 		<ul class="menu">
-			<li><a href="#">Home</a></li>
+			<li><a href="Homepage.jsp">Home</a></li>
 			<li><a href="#">Long Plays</a>
 				<ul class="submenu-1">
 					<li><a href="ConsultarLongPlay.jsp">Consultar Long Play</a></li>
@@ -86,18 +85,18 @@
 			<li><a href="#">Gravadoras</a>
 				<ul class="submenu-1">
 					<li><a href="CadastrarGravadora.jsp">Cadastrar Gravadora</a></li>
-					<li><a href="ListarGravadoras.jsp">Listar Gravadoras</a></li>
+					<li><a href="/Vinil-Prototipo/Vinil?acao=listargravadoras">Listar Gravadoras</a></li>
 				</ul></li>
-			<li><a href="#">SeÁıes</a>
+			<li><a href="#">Se√ß√µes</a>
 				<ul class="submenu-1">
-					<li><a href="CadastrarSecao.jsp">Cadastrar SeÁ„o</a></li>
-					<li><a href="ListarSecoes.jsp">Listar SeÁıes</a></li>
+					<li><a href="CadastrarSecao.jsp">Cadastrar Se√ß√£o</a></li>
+					<li><a href="ListarSecoes.jsp">Listar Se√ß√µes</a></li>
 				</ul></li>
-			<li><a href="#">Funcion·rios</a>
+			<li><a href="#">Funcion√°rios</a>
 				<ul class="submenu-1">
 					<li><a href="CadastrarFuncionario.jsp">Cadastrar
-							Funcion·rios</a></li>
-					<li><a href="ListarFuncionarios.jsp">Listar Funcion·rios</a></li>
+							Funcion√°rios</a></li>
+					<li><a href="ListarFuncionarios.jsp">Listar Funcion√°rios</a></li>
 				</ul></li>
 		</ul>
 	</div>

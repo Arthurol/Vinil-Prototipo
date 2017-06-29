@@ -42,9 +42,40 @@ public class LongPlayDAO {
         }
 	}
 	
-	public List<LongPlay> getLongPlayByNome(String nome)
+	public List<LongPlay> getLongPlaysByTitulo(String titulo)
 	{
-		return null;
+		FaixaDAO faixaDAO = new FaixaDAO();
+		LongPlay longPlay = null;
+		List<LongPlay> listaLps = new ArrayList<LongPlay>();
+		
+		try (Connection conn = config.conectar())
+		{
+	        if (conn == null) {
+	            return null;
+	        }
+	        
+	        PreparedStatement ps = conn.prepareStatement("SELECT * FROM longplays WHERE titulo like ?");
+	        ps.setString(1, "%" + titulo + "%");
+	        ResultSet rs = ps.executeQuery();
+	        
+	        if (!rs.isBeforeFirst())
+	        {
+	        	rs.close();
+	        	return null;
+	        }
+	        
+	        while(rs.next())
+	        {
+	        	longPlay = longPlayFromResultSet(rs);
+	        	longPlay.setFaixas(faixaDAO.getFaixasByLongPlay(longPlay.getId()));
+	        	listaLps.add(longPlay);
+	        }
+	        return listaLps;
+	        
+		} catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
 	}
 	
 	public int adicionaLongPlay(LongPlay longPlay)
@@ -133,10 +164,9 @@ public class LongPlayDAO {
 	}
 	
 	private LongPlay longPlayFromResultSet(ResultSet rs) throws SQLException {
-		rs.next();
 		LongPlay longPlay = new LongPlay();
 		longPlay.setId(rs.getInt("id"));
-		longPlay.setTitulo(rs.getString("nome"));
+		longPlay.setTitulo(rs.getString("titulo"));
 		longPlay.setAnoGravacao(rs.getInt("ano_gravacao"));
 		longPlay.setIdGravadora(rs.getInt("gravadora"));
 		longPlay.setGenero(rs.getString("genero"));

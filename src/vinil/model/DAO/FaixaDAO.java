@@ -51,7 +51,7 @@ Configurador config;
 	        rs1.close();
 	        
 	        
-	        PreparedStatement ps2 = conn.prepareStatement("SELECT * FROM faixas WHERE id_faixa in (" + idsFaixas + ")");
+	        PreparedStatement ps2 = conn.prepareStatement("SELECT * FROM faixas WHERE id in (" + idsFaixas + ")");
 	        ResultSet rs2 = ps2.executeQuery();
 	        
 	        return listaFaixasFromResultSet(rs2);
@@ -71,7 +71,7 @@ Configurador config;
 			Faixa faixa = new Faixa();
 			faixa.setId(rs.getInt("id"));
 			faixa.setTitulo(rs.getString("titulo"));
-			faixa.setDuracaoSegundos(rs.getInt("duracaoSegundos"));
+			faixa.setDuracaoSegundos(rs.getInt("duracao_segundos"));
 			faixa.setCompositoresLetra(rs.getString("compositores_letra"));
 			listaFaixas.add(faixa);
 		}

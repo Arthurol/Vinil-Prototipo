@@ -5,6 +5,12 @@ public class Autor {
 	private int id;
 	private String nome;
 	
+	public Autor()
+	{
+		this.id = -1;
+		this.nome = "";
+	}
+	
 	public int getId() 
 	{
 		return id;
@@ -12,12 +18,6 @@ public class Autor {
 	
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Autor()
-	{
-		this.id = -1;
-		this.nome = "";
 	}
 	
 	public Autor(String nome)

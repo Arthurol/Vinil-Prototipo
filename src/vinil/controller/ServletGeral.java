@@ -13,8 +13,10 @@ import vinil.model.Funcionario;
 import vinil.model.Gravadora;
 import vinil.model.LongPlay;
 import vinil.model.DAO.AutorDAO;
+import vinil.model.DAO.FaixaDAO;
 import vinil.model.DAO.FuncionarioDAO;
 import vinil.model.DAO.GravadoraDAO;
+import vinil.model.DAO.LongPlayDAO;
 
 public class ServletGeral extends HttpServlet{
 
@@ -67,6 +69,19 @@ public class ServletGeral extends HttpServlet{
 			 		response.sendRedirect("CadastrarGravadora.jsp");
 			 		break;
 			 	case "cadastrarlp":
+			 		cadastrarLongPlay(request, response, session);
+			 		response.sendRedirect("CadastrarLongPlay.jsp");
+			 		break;
+			 		
+			 	case "listargravadoras":
+			 		GravadoraDAO gravadoraDAO = new GravadoraDAO();
+			 		List<Gravadora> listaGravadoras = gravadoraDAO.listagemGravadoras();
+			 		session.setAttribute("listagravadoras", listaGravadoras);
+			 		response.sendRedirect("ListarGravadoras.jsp");
+			 		break;
+			 	case "consultarlp":
+			 		consultarLongPlay(request, response, session);
+			 		response.sendRedirect("ConsultarLongPlay.jsp");
 			 }
 		 }
 		 
@@ -135,7 +150,8 @@ public class ServletGeral extends HttpServlet{
 		 }
 	 }
 	 
-	 public boolean cadastrarGravadora (HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+	 public boolean cadastrarGravadora (HttpServletRequest request, HttpServletResponse response, HttpSession session) 
+	 {
 		 GravadoraDAO gravadoraDAO = new GravadoraDAO();
 		 
 		 if	(request.getParameter("razaosocial").isEmpty() || request.getParameter("cnpj").isEmpty())
@@ -159,6 +175,118 @@ public class ServletGeral extends HttpServlet{
 			 return false;
 		 }
 			
-		}
+	 }
+	 
+	 public boolean cadastrarLongPlay (HttpServletRequest request, HttpServletResponse response, HttpSession session) 
+	 {
+		 LongPlayDAO longPlayDAO = new LongPlayDAO();
+		 
+		 if	(request.getParameter("titulo").isEmpty() || request.getParameter("anogravacao").isEmpty() || request.getParameter("gravadora").isEmpty() 
+				 || request.getParameter("genero").isEmpty() || request.getParameter("quantidade").isEmpty() || request.getParameter("preco").isEmpty() || request.getParameter("titulofaixa1").isEmpty())
+		 {
+			 session.setAttribute("erro", "Erro de preenchimento do Long Play");
+			 return false;
+		 }
+		 
+		 List<LongPlay> listaLp = new ArrayList<LongPlay>();
+		 List<Integer> listaIdAutores = new ArrayList<Integer>();
+		 List<Faixa> faixas = new ArrayList<Faixa>();
+		 int contadorAutores = 1, duracaoSegundos;
+		 String parametroAutor, parametroTitulo, parametroDuracao, parametroCompositores, titulo, compositores;
+		 
+		 while(true)
+		 {
+			 parametroAutor = "autor" + String.valueOf(contadorAutores);
+			 if (request.getParameterMap().containsKey(parametroAutor))
+			 {
+				 listaIdAutores.add(Integer.parseInt(request.getParameter(parametroAutor)));
+				 contadorAutores++;
+			 }
+			 else
+				 break;
+		 }
+		 
+		 int contadorFaixas = 1;
+		 
+		 while(true)
+		 {
+			 parametroTitulo = "titulofaixa" + String.valueOf(contadorFaixas);
+			 parametroDuracao = "duracao" + String.valueOf(contadorFaixas);
+			 parametroCompositores = "compositores" + String.valueOf(contadorFaixas);
+			 
+			 if (request.getParameterMap().containsKey(parametroTitulo))
+			 {
+				 titulo = request.getParameter(parametroTitulo);
+				 duracaoSegundos = request.getParameter(parametroDuracao).isEmpty() ? -1 : Integer.parseInt(request.getParameter(parametroDuracao)) ;
+				 compositores = request.getParameter(parametroDuracao);
+				 
+				 faixas.add(new Faixa(titulo, duracaoSegundos, compositores));
+				 contadorFaixas++;
+			 }
+			 else
+				 break;
+		 }
+		 
+		 int idSecao = request.getParameter("idgravadora").isEmpty() ? -1 : Integer.parseInt(request.getParameter("idgravadora"));
+		 
+		 
+		 LongPlay longPlay = new LongPlay(request.getParameter("titulo"), listaIdAutores, Integer.parseInt(request.getParameter("anogravacao")), Integer.parseInt(request.getParameter("idgravadora")) ,idSecao, 
+				 request.getParameter("genero"), Integer.parseInt(request.getParameter("quantidade")), Double.parseDouble(request.getParameter("preco")), faixas);
+	
+			
+		 if (longPlayDAO.adicionaLongPlay(longPlay) == 0)
+		 {
+			 session.setAttribute("alerta", "Long Play " + longPlay.getTitulo() + " cadastrado com sucesso!");
+			 return true;
+		 }	 
+		 else
+		 {
+			 session.setAttribute("erro", "Erro de preenchimento do Long Play");
+			 return false;
+		 }
+			
+	  }
+	 
+	 public boolean consultarLongPlay (HttpServletRequest request, HttpServletResponse response, HttpSession session) 
+	 {
+		 LongPlayDAO longPlayDAO = new LongPlayDAO();
+		 AutorDAO autorDAO = new AutorDAO();
+		 
+		 List<LongPlay>listaLps = new ArrayList<LongPlay>();
+		 //ArrayList<ArrayList<Autor>> listaDeListasAutores = new ArrayList<ArrayList<Autor>>();
+		 List<Autor> listaAutores = new ArrayList<Autor>();
+		 List<String> nomesAutores = new ArrayList<String>();
+		 List<Integer> idsAutores = new ArrayList<Integer>();
+		 String concatNomes = "";
+		 
+		 if	(request.getParameter("titulo").isEmpty() )
+				
+		 {
+			 session.setAttribute("erro", "Erro");
+			 return false;
+		 }
+		 
+		 listaLps = longPlayDAO.getLongPlaysByTitulo(request.getParameter("titulo"));
+		 
+		 for (int i = 0; i < listaLps.size(); i++)
+		 {
+			 listaAutores = autorDAO.getAutoresByLongPlay(listaLps.get(i).getId());
+			 for (int j = 0; j < listaAutores.size(); j++)
+			 {
+				 if (j > 0)
+					 concatNomes += ", " + listaAutores.get(j).getNome();
+				 else
+					 concatNomes += listaAutores.get(j).getNome();
+			 }
+			 nomesAutores.add(concatNomes);
+		 }
+		 
+		 session.setAttribute("listalongplays", listaLps);
+		 session.setAttribute("listaAutores", nomesAutores);
+		 
+		 return true;
+		 
+	  }
+	 
 	
 }

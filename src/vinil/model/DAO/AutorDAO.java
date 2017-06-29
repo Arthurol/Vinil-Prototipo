@@ -90,6 +90,7 @@ public class AutorDAO {
 	        ps.setInt(1, idLongPlay);
 	        ResultSet rs = ps.executeQuery();
 	        
+	        //vai retornar uma lista de autores a partir de um id de lp
 	        return listaAutoresFromResultSet(rs);
 	        
 		} catch (SQLException e) {
@@ -111,15 +112,18 @@ public class AutorDAO {
 	private List<Autor> listaAutoresFromResultSet(ResultSet rs) throws SQLException
 	{
 		List<Autor> listaAutores = new ArrayList<Autor>();
-		
+		List<Integer> idsAutores = new ArrayList<Integer>();
 		while(rs.next())
 		{
-			Autor autor = new Autor();
-			autor.setId(rs.getInt("id"));
-			autor.setNome(rs.getString("nome"));
-			listaAutores.add(autor);
+			idsAutores.add(rs.getInt("id_autor"));
 		}
 		rs.close();
+		
+		for (int i = 0; i < idsAutores.size(); i++)
+		{
+			listaAutores.add(getAutorById(idsAutores.get(i)));
+		}
+		
 		return listaAutores;
 	}
 	
