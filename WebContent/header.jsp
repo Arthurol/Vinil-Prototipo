@@ -2,8 +2,6 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
-<
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,15 +30,12 @@
 	</div>
 	<!-- /Logo -->
 
-<<<<<<< HEAD
-=======
 	<!-- Botão Logout -->
 	<div id="logout">
 	<a href="AreaCaixa.jsp"><button class="sair">Sair</button></a>
 	</div>
 	<!-- /Botão Logout -->
 
->>>>>>> 4582d96f371559fba062082075fe7b88ae5b407d
 	<!-- Menu Caixa -->
 	<div id="nav">
 		<ul class="menu">
@@ -71,10 +66,6 @@
 		</ul>
 	</div>
 	<!-- /Menu Vendedor -->
-<<<<<<< HEAD
-
-=======
->>>>>>> 4582d96f371559fba062082075fe7b88ae5b407d
 
 	<!-- Menu Gerente -->
 	<div id="nav">
@@ -107,11 +98,9 @@
 				</ul></li>
 		</ul>
 	</div>
-<<<<<<< HEAD
-
-
+	
 	<c:if test="${not empty erro}">
-		<div style="font-size:16px; font-color:red; text-align:center">
+		<div style="font-size:16px; color:red; text-align:center">
 			<c:out value="${erro}">
 			</c:out>
 			<%
@@ -130,7 +119,4 @@
 	</div>
 	</c:if>
 
-
-=======
->>>>>>> 4582d96f371559fba062082075fe7b88ae5b407d
 	<!-- /Menu Gerente -->
