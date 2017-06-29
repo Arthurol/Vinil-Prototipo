@@ -9,7 +9,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Área do Caixa</title>
+<title>VINIL</title>
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -32,6 +32,15 @@
 	</div>
 	<!-- /Logo -->
 
+<<<<<<< HEAD
+=======
+	<!-- Botão Logout -->
+	<div id="logout">
+	<a href="AreaCaixa.jsp"><button class="sair">Sair</button></a>
+	</div>
+	<!-- /Botão Logout -->
+
+>>>>>>> 4582d96f371559fba062082075fe7b88ae5b407d
 	<!-- Menu Caixa -->
 	<div id="nav">
 		<ul class="menu">
@@ -62,7 +71,10 @@
 		</ul>
 	</div>
 	<!-- /Menu Vendedor -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4582d96f371559fba062082075fe7b88ae5b407d
 
 	<!-- Menu Gerente -->
 	<div id="nav">
@@ -95,6 +107,7 @@
 				</ul></li>
 		</ul>
 	</div>
+<<<<<<< HEAD
 
 
 	<c:if test="${not empty erro}">
@@ -118,4 +131,6 @@
 	</c:if>
 
 
+=======
+>>>>>>> 4582d96f371559fba062082075fe7b88ae5b407d
 	<!-- /Menu Gerente -->

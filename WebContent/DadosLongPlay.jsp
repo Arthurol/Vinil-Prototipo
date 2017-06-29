@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -34,6 +35,22 @@
 			<label>Preço:</label> <a href="IVendedor.jsp"><button>Retornar
 					à página inicial</button></a>
 		</form>
+=======
+<%@include file="header.jsp"%>
+
+	<div class="formCadastro">  			  			
+  			<form class="cadastro-form">
+  			<!-- inserir valores -->
+			    <label>Título: </label>
+			    <label>Data de gravação:</label>
+			    <label>Nome de gravadora:</label>
+			    <label>Data de gravação:</label>
+			    <label>Gênero:</label>
+			    <label>Preço:</label>	
+
+			    <a href="IVendedor.jsp"><button>Retornar à página inicial</button></a>
+			</form>
+>>>>>>> 4582d96f371559fba062082075fe7b88ae5b407d
 	</div>
 
 	<script
