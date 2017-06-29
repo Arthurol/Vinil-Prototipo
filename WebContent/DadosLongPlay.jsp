@@ -1,41 +1,3 @@
-<<<<<<< HEAD
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>VINIL - Dados de Long Play</title>
-
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel='stylesheet prefetch'
-	href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900'>
-<link rel='stylesheet prefetch'
-	href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
-<link rel='stylesheet prefetch'
-	href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-<link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-	<div class="container">
-		<div class="info">
-			<a href="IVendedor.jsp"><img src="LogoVinil.png" alt="LogoVinil"></a>
-		</div>
-	</div>
-	<div class="formCadastro">
-		<form class="cadastro-form">
-			<!-- inserir valores -->
-			<label>Título: </label> <label>Data de gravação:</label> <label>Nome
-				de gravadora:</label> <label>Data de gravação:</label> <label>Gênero:</label>
-			<label>Preço:</label> <a href="IVendedor.jsp"><button>Retornar
-					à página inicial</button></a>
-		</form>
-=======
 <%@include file="header.jsp"%>
 
 	<div class="formCadastro">  			  			
@@ -50,13 +12,11 @@
 
 			    <a href="IVendedor.jsp"><button>Retornar à página inicial</button></a>
 			</form>
->>>>>>> 4582d96f371559fba062082075fe7b88ae5b407d
 	</div>
 
-	<script
-		src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-	<script src="js/index.js"></script>
+    <script src="js/index.js"></script>
 
-</body>
+	</body>
 </html>
