@@ -2,6 +2,7 @@
 
 <div class="formCadastro"   id="cadastroLP">
 	<form class="cadastro-form" id="cadastroLp" action="Vinil">
+		<input name="acao" type="hidden" value="efetuarcadastrolp"/>
 		<input name="titulo" type="text" placeholder="Título" />	
 		<br>
 	<div style="font-size:16px; text-align:left; margin-left:5px;">
@@ -10,7 +11,18 @@
 			<option selected="selected">Escolha um Autor</option>
 			
      			<c:forEach var="autor" items ="${listaAutores}">
-         	 		<option value="${autor.id}">${autor.nome}</option>
+         	 		<option value="<c:out value="${autor.id}" />">${autor.nome}</option>
+     			</c:forEach>
+		</select> 
+	</div> <br>
+	
+	<div style="font-size:16px; text-align:left; margin-left:5px;">
+		<label for="gravadora">Autor do Long Play: </label>
+		<select name="gravadora" id="idautor">
+			<option selected="selected">Escolha uma Gravadora</option>
+			
+     			<c:forEach var="gravad" items ="${listagravadoras}">
+         	 		<option value="${gravad.id}">${gravad.nome}</option>
      			</c:forEach>
 		</select> 
 	</div> <br>
@@ -18,7 +30,7 @@
 		<input name="anogravacao" id="anoLP" type="text" placeholder="Ano de gravação" />			
 		<input name="genero" type="text" placeholder="Gênero" />
 		<input name="preco" type="text" placeholder="Preço" />
-
+		<input name="quantidade" type="text" placeholder="Quantidade" />
 
 	<div id="origem" align="center">
 			<br><h2 style="text-align:left;margin-left:5px;"><% out.print("Faixa 1"); %></h2><br>

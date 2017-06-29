@@ -11,6 +11,12 @@ public class Autor {
 		this.nome = "";
 	}
 	
+	public Autor(int id, String nome)
+	{
+		this.id = id;
+		this.nome = nome;
+	}
+	
 	public int getId() 
 	{
 		return id;
@@ -19,6 +25,7 @@ public class Autor {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	
 	public Autor(String nome)
 	{

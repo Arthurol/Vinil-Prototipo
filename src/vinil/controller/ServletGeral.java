@@ -40,20 +40,6 @@ public class ServletGeral extends HttpServlet{
 			 		login(request, response, session);
 			 		break;
 			 		
-			 	case "teste":	
-			 		AutorDAO autorDAO = new AutorDAO();
-			 		List<Faixa> faixas = new ArrayList<Faixa>();
-			 		faixas.add(new Faixa("Sometimes I Feel Like Screaming", "Ian Gillian, Steve Morse"));
-			 		faixas.add(new Faixa("Pictures of Home", "Ian Gillian, Roger Glover, Ritchie Blackmore"));
-
-			 		Autor autor = autorDAO.getAutorByName("Deep Purple");
-			 		ArrayList<Integer> listaAutores = new ArrayList<Integer>(autor.getId());
-			 		LongPlay longPlay = new LongPlay("Deep Purple in Concert", listaAutores, 1999, 9, "Rock Internacional", 20, 60.00, faixas);
-			 		
-			 		session.setAttribute("longPlay", longPlay);
-			 		response.sendRedirect("EfetuarLogin.jsp");
-			 		break;
-			 		
 			 	case "logout":
 			 		session.setAttribute("funcionario", null);
 			 		response.sendRedirect("EfetuarLogin.jsp");
@@ -68,10 +54,6 @@ public class ServletGeral extends HttpServlet{
 			 		cadastrarGravadora(request, response, session);
 			 		response.sendRedirect("CadastrarGravadora.jsp");
 			 		break;
-			 	case "cadastrarlp":
-			 		cadastrarLongPlay(request, response, session);
-			 		response.sendRedirect("CadastrarLongPlay.jsp");
-			 		break;
 			 		
 			 	case "listargravadoras":
 			 		GravadoraDAO gravadoraDAO = new GravadoraDAO();
@@ -83,11 +65,17 @@ public class ServletGeral extends HttpServlet{
 			 	case "consultarlp":
 			 		consultarLongPlay(request, response, session);
 			 		response.sendRedirect("ConsultarLongPlay.jsp");
+			 		break;
 			 		
 			 	case "preparacadastrarlp":
 			 		preparaCadastroLp(request, response, session);
 			 		response.sendRedirect("CadastrarLongPlay.jsp");
+			 		break;
+			 		
 			 	case "efetuarcadastrolp":
+			 		cadastrarLongPlay(request, response, session);
+			 		response.sendRedirect("CadastrarLongPlay.jsp");
+			 		break;
 			 }
 		 }
 		 
@@ -187,7 +175,7 @@ public class ServletGeral extends HttpServlet{
 	 {
 		 LongPlayDAO longPlayDAO = new LongPlayDAO();
 		 
-		 if	(request.getParameter("titulo").isEmpty() || request.getParameter("anogravacao").isEmpty() || request.getParameter("gravadora").isEmpty() 
+		 if	(request.getParameter("titulo").isEmpty() || request.getParameter("anogravacao").isEmpty() || request.getParameter("idautor").isEmpty() || request.getParameter("gravadora").isEmpty() 
 				 || request.getParameter("genero").isEmpty() || request.getParameter("quantidade").isEmpty() || request.getParameter("preco").isEmpty() || request.getParameter("titulofaixa1").isEmpty())
 		 {
 			 session.setAttribute("erro", "Erro de preenchimento do Long Play");
@@ -200,27 +188,18 @@ public class ServletGeral extends HttpServlet{
 		 int contadorAutores = 1, duracaoSegundos;
 		 String parametroAutor, parametroTitulo, parametroDuracao, parametroCompositores, titulo, compositores;
 		 
-		 while(true)
-		 {
-			 parametroAutor = "autor" + String.valueOf(contadorAutores);
-			 if (request.getParameterMap().containsKey(parametroAutor))
-			 {
-				 listaIdAutores.add(Integer.parseInt(request.getParameter(parametroAutor)));
-				 contadorAutores++;
-			 }
-			 else
-				 break;
-		 }
+		 listaIdAutores.add(Integer.parseInt(request.getParameter("idautor")));
+		 
 		 
 		 int contadorFaixas = 1;
 		 
 		 while(true)
 		 {
 			 parametroTitulo = "titulofaixa" + String.valueOf(contadorFaixas);
-			 parametroDuracao = "duracao" + String.valueOf(contadorFaixas);
+			 parametroDuracao = "duracaosegundos" + String.valueOf(contadorFaixas);
 			 parametroCompositores = "compositores" + String.valueOf(contadorFaixas);
 			 
-			 if (request.getParameterMap().containsKey(parametroTitulo))
+			 if (!request.getParameter(parametroTitulo).isEmpty())
 			 {
 				 titulo = request.getParameter(parametroTitulo);
 				 duracaoSegundos = request.getParameter(parametroDuracao).isEmpty() ? -1 : Integer.parseInt(request.getParameter(parametroDuracao)) ;
@@ -233,10 +212,14 @@ public class ServletGeral extends HttpServlet{
 				 break;
 		 }
 		 
-		 int idSecao = request.getParameter("idsecao").isEmpty() ? -1 : Integer.parseInt(request.getParameter("idsecao"));
+		 int idSecao;
+		 if (request.getParameter("idsecao") == null || request.getParameter("idsecao").isEmpty())
+			 	idSecao =  -1 ;
+		 else
+			 	idSecao = Integer.parseInt(request.getParameter("idsecao"));
 		 
 		 
-		 LongPlay longPlay = new LongPlay(request.getParameter("titulo"), listaIdAutores, Integer.parseInt(request.getParameter("anogravacao")), Integer.parseInt(request.getParameter("idgravadora")) ,idSecao, 
+		 LongPlay longPlay = new LongPlay(request.getParameter("titulo"), listaIdAutores, Integer.parseInt(request.getParameter("anogravacao")), Integer.parseInt(request.getParameter("gravadora")) ,idSecao, 
 				 request.getParameter("genero"), Integer.parseInt(request.getParameter("quantidade")), Double.parseDouble(request.getParameter("preco")), faixas);
 	
 			
@@ -297,10 +280,14 @@ public class ServletGeral extends HttpServlet{
 	 public boolean preparaCadastroLp(HttpServletRequest request, HttpServletResponse response, HttpSession session)
 	 {
 		 AutorDAO autorDAO = new AutorDAO();
+		 GravadoraDAO gravadoraDAO = new GravadoraDAO();
 		 List<Autor> autores = new ArrayList<Autor>();
+		 List<Gravadora> gravadoras = new ArrayList<Gravadora>();
 		 autores = autorDAO.listagemAutores();
+		 gravadoras = gravadoraDAO.listagemGravadoras();
 		 
 		 session.setAttribute("listaAutores", autores);
+		 session.setAttribute("listagravadoras", gravadoras);
 		 return false;
 	 }
 	 

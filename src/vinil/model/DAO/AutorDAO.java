@@ -143,7 +143,7 @@ public class AutorDAO {
 	        
 	        while (rs.next())
 	        {
-	        	autores.add(new Autor(rs.getString("nome")));
+	        	autores.add(new Autor(rs.getInt("id"), rs.getString("nome")));
 	        }
 	        rs.close();
 	        return autores;
