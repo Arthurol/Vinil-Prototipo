@@ -41,7 +41,7 @@
 				<input id="email" name="email" type="text" placeholder="ID de usuário" /> 
 				<input id="senha" name="senha" type="password" placeholder="Senha" /> 
 				<input name="acao" type="hidden" value="login" />
-				<input type="submit" value="Login"></input>
+				<input id="submit" style="color: WHITE" type="submit" value="Login"></input>
 				<p class="message">
 				<a href="#">Esqueceu sua senha?</a>
 				</p>

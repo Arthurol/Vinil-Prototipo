@@ -203,7 +203,7 @@ public class ServletGeral extends HttpServlet{
 			 {
 				 titulo = request.getParameter(parametroTitulo);
 				 duracaoSegundos = request.getParameter(parametroDuracao).isEmpty() ? -1 : Integer.parseInt(request.getParameter(parametroDuracao)) ;
-				 compositores = request.getParameter(parametroDuracao);
+				 compositores = request.getParameter(parametroCompositores);
 				 
 				 faixas.add(new Faixa(titulo, duracaoSegundos, compositores));
 				 contadorFaixas++;
